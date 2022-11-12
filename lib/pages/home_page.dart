@@ -15,6 +15,17 @@ class _HomePageState extends State<HomePage> {
   final double verticalPadding = 25;
 
 
+  // list of devices
+
+  List mySmartDevices = [
+    ["Smart Light", "lib/icons/light-bulb.png", true],
+    ["Smart AC", "lib/icons/air-conditioner.png", true],
+    ["Smart TV", "lib/icons/smart-tv.png", true],
+    ["Smart Fan", "lib/icons/fan.png", true],
+
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,11 +94,16 @@ class _HomePageState extends State<HomePage> {
             
            Expanded(
              child: GridView.builder(
+               itemCount: mySmartDevices.length,
                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                  crossAxisCount: 2),
                itemBuilder: (context, index) {
-                 return Container(
+                 return Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: Container(
+                     color: Colors.blue,
 
+                   ),
                  );
                }
              ),
