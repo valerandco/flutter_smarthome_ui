@@ -34,8 +34,6 @@ class SmartDeviceBox extends StatelessWidget {
 
             // device name
 
-
-
           ],
         ),
 
