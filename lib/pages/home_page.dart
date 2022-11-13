@@ -26,6 +26,13 @@ class _HomePageState extends State<HomePage> {
 
   ];
 
+  void powerSwitchChanged(bool value) {
+    setState(() {
+      mySmartDevices[index][2] = value;
+
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -96,14 +103,17 @@ class _HomePageState extends State<HomePage> {
            Expanded(
              child: GridView.builder(
                itemCount: mySmartDevices.length,
-               padding: EdgeInsets.all(25),
+               padding: const EdgeInsets.all(25),
                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                 crossAxisCount: 2),
+                 crossAxisCount: 2,
+                 childAspectRatio: 1/1.3,
+               ),
                itemBuilder: (context, index) {
                  return SmartDeviceBox(
                    smartDeviceName: mySmartDevices[index][0],
                    iconPath: mySmartDevices[index][1],
                    PowerOn: mySmartDevices[index][2],
+                   onChanged: (value) => powerSwitchChanged(value),
                  );
                }
              ),
