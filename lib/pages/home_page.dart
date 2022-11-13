@@ -26,7 +26,9 @@ class _HomePageState extends State<HomePage> {
 
   ];
 
-  void powerSwitchChanged(bool value) {
+
+
+  void powerSwitchChanged(bool value, int index) {
     setState(() {
       mySmartDevices[index][2] = value;
 
@@ -91,7 +93,17 @@ class _HomePageState extends State<HomePage> {
             ),
 
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
+
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: horizontalPadding),
+              child: Divider(
+                color: Colors.grey[400],
+                thickness: 1,
+              ),
+            ),
+
+            SizedBox(height: 25),
 
             // devices
 
@@ -113,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                    smartDeviceName: mySmartDevices[index][0],
                    iconPath: mySmartDevices[index][1],
                    PowerOn: mySmartDevices[index][2],
-                   onChanged: (value) => powerSwitchChanged(value),
+                   onChanged: (value) => powerSwitchChanged(value, index),
                  );
                }
              ),
